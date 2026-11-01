@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UI-04-01: ฟีดงานรับซื้อของเก่าและคิวความจุรถซาเล้ง (Saleng Group 2)</title>
+  <style>
+    :root { --navy: #1B2A4A; --green: #2E7D6B; --orange: #E8792B; --red: #B3261E; --bg: #F7F9FC; }
+    body { font-family: "Sarabun", "Prompt", sans-serif; background: var(--bg); color: #1F2933; margin: 0; padding: 16px; }
+    .container { max-width: 480px; margin: 0 auto; background: #fff; border: 2px solid var(--navy); border-radius: 12px; padding: 16px; }
+    .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #E5E7EB; padding-bottom: 12px; margin-bottom: 12px; }
+    .badge { padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; background: #CDEFD9; color: var(--navy); }
+    .capacity-bar { background: #FFF4EA; border: 1.5px solid var(--orange); border-radius: 8px; padding: 12px; margin-bottom: 16px; }
+    .job-card { border: 1.5px solid var(--navy); border-radius: 10px; padding: 12px; margin-bottom: 12px; background: #FAFCFF; }
+    .masked-info { font-size: 14px; color: #4A5068; background: #EEF3FA; padding: 6px 10px; border-radius: 6px; margin: 8px 0; }
+    .btn-primary { width: 100%; min-height: 52px; font-size: 16px; font-weight: 700; background: var(--green); color: #fff; border: none; border-radius: 8px; cursor: pointer; margin-top: 8px; }
+    .btn-disabled { width: 100%; min-height: 52px; font-size: 16px; font-weight: 700; background: #FDECEC; color: var(--red); border: 1.5px solid var(--red); border-radius: 8px; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="container" data-mockup-id="UI-04-01">
+    <div class="header">
+      <div>
+        <h1 style="font-size: 18px; margin: 0;">คิวงานรับซื้อในรัศมี 5 กม.</h1>
+        <small>ซาเล้ง: สมชาย (BUYER-01) | สถานะ KYC: ยืนยันแล้ว</small>
+      </div>
+      <span class="badge">S2 Matched</span>
+    </div>
+
+    <section class="capacity-bar" data-req="BR-03">
+      <strong>ความจุรถซาเล้ง (กก.):</strong> 175.0 / 200.0 กก. (คงเหลือรับเพิ่มได้ 25.0 กก.)
+    </section>
+
+    <article class="job-card" data-req="REQ-FN-001">
+      <div style="display:flex; justify-content:space-between;">
+        <strong>ใบงาน #JOB-101 (ห่าง 1.2 กม. | ETA 6 นาที)</strong>
+        <span class="badge">ลำดับแวะที่ 1</span>
+      </div>
+      <p style="margin:6px 0;">หมวด: ขวดพลาสติกใส PET | <strong>น้ำหนักประเมิน (กก.):</strong> 20.0 กก.<br/>
+      <strong>ราคาล็อก ณ นัดหมาย (บาท/กก.):</strong> 12.00 บาท/กก. (รวมประเมิน 240.00 บาท)</p>
+      <div class="masked-info" data-req="REQ-SEC-002">
+        จุดสังเกต: ซอยลาดพร้าว 71 แยก 4 (บ้านเลขที่จริงซ่อนตาม PDPA จนกว่าจะเริ่มเดินทาง) | โทร: 081-XXX-4567
+      </div>
+      <button class="btn-primary" data-req="REQ-UX-001">คำนวณเส้นทางและเริ่มออกเดินทาง (S2 → S3)</button>
+    </article>
+
+    <article class="job-card" data-req="BR-03">
+      <div style="display:flex; justify-content:space-between;">
+        <strong>ใบงาน #JOB-104 (ห่าง 2.8 กม.)</strong>
+        <span style="color:var(--red); font-weight:700;">เกินความจุรถ</span>
+      </div>
+      <p style="margin:6px 0;">หมวด: กระดาษลังลูกฟูก | <strong>น้ำหนักประเมิน (กก.):</strong> 35.0 กก.</p>
+      <button class="btn-disabled" disabled data-req="REQ-FN-001">
+        น้ำหนักรวมเกินความจุรถ (210.0 / 200.0 กก.) — ไม่สามารถรับเพิ่มในรอบนี้
+      </button>
+    </article>
+  </div>
+</body>
+</html>

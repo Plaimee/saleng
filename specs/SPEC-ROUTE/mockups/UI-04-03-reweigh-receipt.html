@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UI-04-03: บันทึกน้ำหนักชั่งจริง ตรวจสอบส่วนต่าง ±15% และออกใบเสร็จดิจิทัล (Saleng Group 2)</title>
+  <style>
+    :root { --navy: #1B2A4A; --green: #2E7D6B; --orange: #E8792B; --bg: #F7F9FC; }
+    body { font-family: "Sarabun", "Prompt", sans-serif; background: var(--bg); color: #1F2933; margin: 0; padding: 16px; }
+    .container { max-width: 480px; margin: 0 auto; background: #fff; border: 2px solid var(--navy); border-radius: 12px; padding: 16px; }
+    .field { margin-bottom: 12px; }
+    .field label { display: block; font-weight: 700; margin-bottom: 4px; }
+    .field input { width: 100%; min-height: 48px; font-size: 16px; padding: 8px; box-sizing: border-box; border: 1.5px solid var(--navy); border-radius: 8px; }
+    .requote-alert { background: #FFF4EA; border: 2px solid var(--orange); border-radius: 8px; padding: 12px; margin: 12px 0; }
+    .offline-pill { display: inline-block; background: #EEF3FA; border: 1.5px solid var(--navy); padding: 6px 10px; border-radius: 6px; font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+    .receipt-box { background: #F2FAF6; border: 1.5px solid var(--green); border-radius: 8px; padding: 12px; margin-top: 12px; }
+    .btn-primary { width: 100%; min-height: 52px; font-size: 16px; font-weight: 700; background: var(--green); color: #fff; border: none; border-radius: 8px; cursor: pointer; margin-top: 8px; }
+    .todo { border: 2px dashed #E8792B; background: #FFFDF7; padding: 10px; border-radius: 8px; margin-top: 14px; font-size: 13px; color: #7C2D12; }
+  </style>
+</head>
+<body>
+  <div class="container" data-mockup-id="UI-04-03">
+    <span class="offline-pill" data-req="REQ-OP-001">สถานะเครือข่าย: บันทึกในเครื่องแล้ว — รอซิงก์เมื่อมีสัญญาณ (idempotency_key: RCT-2026-0103)</span>
+    <h1 style="font-size: 18px; margin: 4px 0 12px;">บันทึกน้ำหนักชั่งจริงและใบเสร็จ (#JOB-103)</h1>
+
+    <div class="field" data-req="REQ-BR-002">
+      <label>วัสดุและราคาล็อก ณ นัดหมาย (Price Snapshot):</label>
+      <div>ขวดพลาสติกใส PET | น้ำหนักประเมิน (กก.): 20.0 กก. | ราคาล็อก: 12.00 บาท/กก.</div>
+    </div>
+
+    <div class="field" data-req="REQ-FN-002">
+      <label for="actual-weight">น้ำหนักชั่งจริง (กก.):</label>
+      <input id="actual-weight" type="number" step="0.1" value="16.0" />
+    </div>
+
+    <div class="field" data-req="REQ-DAT-001">
+      <label>รูปถ่ายหน้าตาชั่งดิจิทัล (บังคับแนบก่อนจบงาน):</label>
+      <input type="file" accept="image/*" />
+    </div>
+
+    <div class="requote-alert" data-req="REQ-FN-004">
+      <strong>แจ้งเตือนเกณฑ์ ±15% (BR-02):</strong> ส่วนต่างน้ำหนัก (%) เท่ากับ <strong>-20.0%</strong> (เกินเกณฑ์ ±15%)<br/>
+      สถานะเปลี่ยนเป็น: <strong>รอผู้ขายยืนยันราคาใหม่ (S5)</strong> — ยอดชำระใหม่ 192.00 บาท
+    </div>
+
+    <div class="receipt-box" data-req="REQ-FN-005">
+      <strong>ตัวอย่างใบเสร็จดิจิทัล (ออกเมื่อ S6 Settled):</strong><br/>
+      น้ำหนักชั่งจริง: 16.0 กก. × ราคาล็อก 12.00 บาท/กก. = <strong>ยอดชำระสุทธิ 192.00 บาท</strong>
+    </div>
+
+    <button class="btn-primary" data-req="REQ-UX-001">ส่งผลชั่งจริง / ออกใบเสร็จดิจิทัล (ความสูงปุ่ม 52px)</button>
+
+    <div class="todo" data-open-question="Q-04">
+      <strong>[TODO — คำถามเปิด Q-04 / สมมติฐาน AS-01 (ห้าม AI สร้างในโค้ดจริงรอบนี้)]</strong><br/>
+      กรณีผู้ขายกดปฏิเสธน้ำหนักชั่งจริง (S5 → S8 Disputed) ยังรอข้อสรุปจากเจ้าของโครงการเรื่องการคิดค่าธรรมเนียมเดินทางของซาเล้ง ในเฟสแรกให้ล็อกหลักฐานส่ง Admin ตรวจสอบเท่านั้น ห้ามสร้างปุ่มหักค่าธรรมเนียมอัตโนมัติ
+    </div>
+  </div>
+</body>
+</html>

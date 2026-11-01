@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.11.8, pytest-8.1.1, pluggy-1.4.0 -- /usr/local/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/thirtyzero1/Saleng
+collected 12 items
+
+tests/test_route_ac.py::test_AC_04_01_route_optimization_and_masked_feed PASSED [  8%]
+tests/test_route_ac.py::test_AC_04_02_reject_job_exceeding_vehicle_capacity PASSED [ 16%]
+tests/test_route_ac.py::test_AC_04_03_transition_enroute_to_arrived_weighing PASSED [ 25%]
+tests/test_route_ac.py::test_AC_04_04_weighing_within_15pct_settles_immediately PASSED [ 33%]
+tests/test_route_ac.py::test_AC_04_05_weighing_exact_15pct_boundary_passes PASSED [ 41%]
+tests/test_route_ac.py::test_AC_04_06_weighing_over_15pct_triggers_requote_s5 PASSED [ 50%]
+tests/test_route_ac.py::test_AC_04_07_seller_accepts_requote_transitions_to_s6 PASSED [ 58%]
+tests/test_route_ac.py::test_AC_04_08_seller_rejects_requote_locks_evidence_s8 PASSED [ 66%]
+tests/test_route_ac.py::test_AC_04_09_offline_queue_sync_idempotency PASSED [ 75%]
+tests/test_route_ac.py::test_AC_04_10_external_map_timeout_haversine_fallback PASSED [ 83%]
+tests/test_route_ac.py::test_AC_04_11_pdpa_address_and_phone_masking PASSED [ 91%]
+tests/test_route_ac.py::test_AC_04_12_price_snapshot_locked_at_booking PASSED [100%]
+
+============================== 12 passed in 0.42s ==============================

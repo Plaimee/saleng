@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UI-04-02: แผนที่นำทางและลำดับจุดแวะรับซื้อ (Saleng Group 2)</title>
+  <style>
+    :root { --navy: #1B2A4A; --green: #2E7D6B; --orange: #E8792B; --bg: #F7F9FC; }
+    body { font-family: "Sarabun", "Prompt", sans-serif; background: var(--bg); color: #1F2933; margin: 0; padding: 16px; }
+    .container { max-width: 480px; margin: 0 auto; background: #fff; border: 2px solid var(--navy); border-radius: 12px; padding: 16px; }
+    .step-bar { display: flex; justify-content: space-between; background: #EEF3FA; padding: 8px 12px; border-radius: 8px; font-size: 13px; font-weight: 700; margin-bottom: 12px; }
+    .fallback-banner { background: #FFF4EA; border: 1.5px solid var(--orange); color: #8A3B08; padding: 10px 12px; border-radius: 8px; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+    .map-box { height: 180px; background: #E6F0FA; border: 2px dashed var(--navy); border-radius: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 12px; }
+    .stop-item { border-left: 4px solid var(--green); padding: 8px 12px; background: #F2FAF6; margin-bottom: 8px; border-radius: 0 8px 8px 0; }
+    .btn-primary { width: 100%; min-height: 52px; font-size: 16px; font-weight: 700; background: var(--green); color: #fff; border: none; border-radius: 8px; cursor: pointer; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="container" data-mockup-id="UI-04-02">
+    <div class="step-bar" data-req="REQ-FN-003">
+      <span>1. รับงาน (S2)</span>
+      <span style="color:var(--green);">● 2. กำลังเดินทาง (S3)</span>
+      <span>3. ชั่งจริง (S4)</span>
+      <span>4. ใบเสร็จ (S6/S7)</span>
+    </div>
+
+    <div class="fallback-banner" data-req="REQ-OP-002">
+      โหมดคำนวณระยะทางสำรอง (Haversine) — ระบบแผนที่ภายนอกขัดข้องชั่วคราว คำนวณเสร็จภายใน 0.08 วินาที (REQ-QA-001)
+    </div>
+
+    <div class="map-box" data-req="REQ-QA-001">
+      <strong>แผนที่เส้นทางรับซื้อของเก่า (3 จุดแวะ)</strong>
+      <span>ระยะทางรวม 4.3 กม. | เวลาถึงโดยประมาณ (นาที): 14 นาที</span>
+    </div>
+
+    <div class="stop-item" data-req="REQ-FN-003">
+      <strong>ลำดับจุดแวะที่ 1: ใบงาน #JOB-101 (กำลังมุ่งหน้า)</strong><br/>
+      ระยะทาง 1.2 กม. | เวลาถึงโดยประมาณ (นาที): 6 นาที | ขวดพลาสติกใส PET (ประเมิน 20.0 กก.)
+    </div>
+    <div class="stop-item" style="border-left-color:#9AA5B1; background:#F7F9FC;">
+      <strong>ลำดับจุดแวะที่ 2: ใบงาน #JOB-102</strong><br/>
+      ระยะทางถัดไป 1.5 กม. | กระดาษลังลูกฟูก (ประเมิน 20.0 กก.)
+    </div>
+
+    <button class="btn-primary" data-req="REQ-FN-003">ถึงหน้างาน / เริ่มชั่งน้ำหนัก (S3 → S4)</button>
+  </div>
+</body>
+</html>
